@@ -9,11 +9,11 @@ let loopCount = 0; // Track number of completed loops
 let buttons = []; // Store button bounds for click detection
 
 // Line properties
-const LINE_WIDTH = 200;
+let LINE_WIDTH = 200;
 const ANIMATION_HEIGHT = HEIGHT * 0.8; // Top 4/5 for animation
 
 // Bezier curve properties
-const CONTROL_POINT_SIZE = 80;
+let CONTROL_POINT_SIZE = 80;
 const HANDLE_LINE_WEIGHT = 2;
 
 // 12 Principles of Animation
@@ -40,6 +40,9 @@ function setup() {
   
   // Initialize button positions
   calculateButtonBounds();
+
+  // Wire up UI sliders if present
+  setupSliders();
 }
 
 function calculateButtonBounds() {
@@ -162,6 +165,29 @@ function drawButtons() {
     
     rectMode(CENTER);
     rect(btn.x, btn.y, btn.size, btn.size);
+  }
+}
+
+function setupSliders() {
+  const lineWidthSlider = document.getElementById('line-width-slider');
+  const controlSizeSlider = document.getElementById('control-size-slider');
+
+  if (lineWidthSlider) {
+    lineWidthSlider.value = LINE_WIDTH;
+    lineWidthSlider.addEventListener('input', (e) => {
+      const v = parseFloat(e.target.value);
+      LINE_WIDTH = constrain(isNaN(v) ? LINE_WIDTH : v, 20, 200);
+      redraw();
+    });
+  }
+
+  if (controlSizeSlider) {
+    controlSizeSlider.value = CONTROL_POINT_SIZE;
+    controlSizeSlider.addEventListener('input', (e) => {
+      const v = parseFloat(e.target.value);
+      CONTROL_POINT_SIZE = constrain(isNaN(v) ? CONTROL_POINT_SIZE : v, 8, 80);
+      redraw();
+    });
   }
 }
 
