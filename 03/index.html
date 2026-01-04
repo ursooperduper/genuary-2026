@@ -4,13 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
-  <title>Genuary 2026 - Template</title>
+  <title>Genuary 2026 - 03c Wavy Pattern</title>
+  <style>
+    .controls {
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .control-group {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .control-group label {
+      min-width: 150px;
+      font-weight: bold;
+    }
+    .control-group input[type="range"] {
+      flex: 1;
+      min-width: 200px;
+    }
+    .control-value {
+      min-width: 80px;
+      text-align: right;
+      font-family: monospace;
+    }
+  </style>
 </head>
 <body>
   <main>
     <h1>Genuary 2026</h1>
-    <h2>January 03</h2>
-    <p>Fibonacci forever. Create a work that uses the Fibonacci sequence in some way.</p>
+    <h2>January 03c - Wavy Pattern</h2>
+    <p>Fibonacci Spiral Tiling with Wavy Pattern at Controllable Angle</p>
+    
+    <div class="controls">
+      <div class="control-group">
+        <label>Angle (degrees):</label>
+        <input type="range" id="angleSlider" min="0" max="360" value="45" step="1" />
+        <span class="control-value" id="angleValue">45°</span>
+      </div>
+      <div class="control-group">
+        <label>Stroke Weight:</label>
+        <input type="range" id="strokeWeightSlider" min="2" max="80" value="20" step="1" />
+        <span class="control-value" id="strokeWeightValue">20px</span>
+      </div>
+      <div class="control-group">
+        <label>Spacing:</label>
+        <input type="range" id="spacingSlider" min="20" max="150" value="50" step="5" />
+        <span class="control-value" id="spacingValue">50px</span>
+      </div>
+      <div class="control-group">
+        <label>Amplitude:</label>
+        <input type="range" id="amplitudeSlider" min="5" max="80" value="15" step="1" />
+        <span class="control-value" id="amplitudeValue">15px</span>
+      </div>
+      <div class="control-group">
+        <label>Frequency:</label>
+        <input type="range" id="frequencySlider" min="0.1" max="5" value="1" step="0.1" />
+        <span class="control-value" id="frequencyValue">1.0</span>
+      </div>
+    </div>
+    
     <div id="sketch-holder" aria-label="p5 canvas holder"></div>
   </main>
   <script src="../lib/p5.min.js"></script>
