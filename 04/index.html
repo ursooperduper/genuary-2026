@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <title>Genuary 2026 - Lowres</title>
+</head>
+<body>
+  <main>
+    <h1>Genuary 2026</h1>
+    <h2>January 04</h2>
+    <p>Lowres. An image or graphic with low resolution, where details are simplified or pixelated.</p>
+    <div class="controls">
+      <div class="control-group">
+        <label for="imageUpload">Upload Image:</label>
+        <input type="file" id="imageUpload" accept="image/*" />
+      </div>
+      <div class="control-group">
+        <label for="cellSliderX">Cell Width (X):</label>
+        <input type="range" id="cellSliderX" min="2" max="120" step="1" value="24" />
+        <span id="cellValueX">24 px</span>
+      </div>
+      <div class="control-group">
+        <label for="cellSliderY">Cell Height (Y):</label>
+        <input type="range" id="cellSliderY" min="2" max="120" step="1" value="24" />
+        <span id="cellValueY">24 px</span>
+        <label for="cellLock" style="margin-left: 15px; font-weight: normal;">
+          <input type="checkbox" id="cellLock" />
+          Lock X/Y
+        </label>
+      </div>
+      <div class="control-group">
+        <label for="shapeSelector">Cell Shape:</label>
+        <select id="shapeSelector">
+          <option value="square">Square</option>
+          <option value="circle">Circle</option>
+          <option value="diamond">Diamond</option>
+          <option value="hexagon">Hexagon</option>
+          <option value="star">Star</option>
+          <option value="triangle">Triangle</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="cellGapSliderX">Cell Gap (X):</label>
+        <input type="range" id="cellGapSliderX" min="0.5" max="1.0" step="0.05" value="0.9" />
+        <span id="cellGapValueX">10% gap</span>
+      </div>
+      <div class="control-group">
+        <label for="cellGapSliderY">Cell Gap (Y):</label>
+        <input type="range" id="cellGapSliderY" min="0.5" max="1.0" step="0.05" value="0.9" />
+        <span id="cellGapValueY">10% gap</span>
+        <label for="cellGapLock" style="margin-left: 15px; font-weight: normal;">
+          <input type="checkbox" id="cellGapLock" />
+          Lock X/Y
+        </label>
+      </div>
+      <div class="control-group">
+        <label for="colorModeSelector">Color Mode:</label>
+        <select id="colorModeSelector">
+          <option value="full">Full Color</option>
+          <option value="grayscale">Grayscale</option>
+          <option value="duotone">Duotone</option>
+          <option value="indexed">Indexed Palette</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="posterizeSlider">Posterize Levels:</label>
+        <input type="range" id="posterizeSlider" min="2" max="256" step="1" value="256" />
+        <span id="posterizeValue">256 (off)</span>
+      </div>
+      <div class="control-group">
+        <label for="adaptiveCheckbox" style="font-weight: normal;">
+          <input type="checkbox" id="adaptiveCheckbox" />
+          Adaptive Resolution (varies by contrast)
+        </label>
+      </div>
+    </div>
+    <div id="sketch-holder" aria-label="p5 canvas holder"></div>
+  </main>
+  <script src="../lib/p5.min.js"></script>
+  <script src="../lib/p5.svg.js"></script>
+  <script src="./sketch.js"></script>
+</body>
+</html>
