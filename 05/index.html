@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genuary 2026 - Day 05c - Chaos Reveal Poster</title>
+  <script src="../lib/p5.min.js"></script>
+  <script src="../lib/p5.svg.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    #sketch-holder {
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    .control-panel {
+      /* background: #f5f5f5; */
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .control-group {
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+    .control-group.full {
+      grid-template-columns: 1fr;
+    }
+    label {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    input[type="number"], select, input[type="color"] {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="color"] {
+      height: 40px;
+      padding: 2px;
+      cursor: pointer;
+    }
+    .color-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .color-group input[type="color"] {
+      flex-shrink: 0;
+      width: 50px;
+      height: 40px;
+    }
+    .color-group input[type="text"] {
+      flex: 1;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+    input[type="checkbox"] {
+      cursor: pointer;
+      width: auto;
+      margin-right: 8px;
+    }
+    .slider-value {
+      font-size: 12px;
+      color: #666;
+    }
+    button {
+      padding: 10px 16px;
+      margin: 4px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    button:hover {
+      background: #555;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .section-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Day 05c: Chaos Reveal Poster</h1>
+    <p>Invisible mask revealed by chaotic marks in white regions.</p>
+    
+    <div id="sketch-holder"></div>
+    
+    <div class="control-panel">
+      <form id="controls">
+        
+        <!-- Generation -->
+        <div class="section-title">Generation</div>
+        
+        <div class="control-group">
+          <label for="seed">Seed:</label>
+          <input type="number" id="seed" value="42" />
+        </div>
+        
+        <div class="control-group">
+          <label for="layers">Layers: <span class="slider-value" id="layersValue">1</span></label>
+          <input type="range" id="layers" min="1" max="3" step="1" value="1" />
+        </div>
+        
+        <div class="button-row">
+          <button type="button" id="randomizeBtn">Randomize Seed</button>
+          <button type="button" id="generateBtn">Generate Poster</button>
+          <button type="button" id="resetBtn">Clear</button>
+        </div>
+        
+        <!-- Iterations & Walkers -->
+        <div class="section-title">Chaos Engine</div>
+        
+        <div class="control-group">
+          <label for="iterations">Iterations: <span class="slider-value" id="iterationsValue">500</span></label>
+          <input type="range" id="iterations" min="100" max="5000" step="100" value="500" />
+        </div>
+        
+        <div class="control-group">
+          <label for="walkers">Walkers: <span class="slider-value" id="walkersValue">50</span></label>
+          <input type="range" id="walkers" min="10" max="500" step="10" value="50" />
+        </div>
+        
+        <div class="control-group">
+          <label for="stepSizeMin">Step Size Min: <span class="slider-value" id="stepSizeMinValue">2</span></label>
+          <input type="range" id="stepSizeMin" min="0.5" max="10" step="0.5" value="2" />
+        </div>
+        
+        <div class="control-group">
+          <label for="stepSizeMax">Step Size Max: <span class="slider-value" id="stepSizeMaxValue">6</span></label>
+          <input type="range" id="stepSizeMax" min="2" max="20" step="0.5" value="6" />
+        </div>
+        
+        <!-- Marks -->
+        <div class="section-title">Mark Style</div>
+        
+        <div class="control-group">
+          <label for="strokeWeightMin">Stroke Weight Min: <span class="slider-value" id="strokeWeightMinValue">0.5</span></label>
+          <input type="range" id="strokeWeightMin" min="0.1" max="5" step="0.1" value="0.5" />
+        </div>
+        
+        <div class="control-group">
+          <label for="strokeWeightMax">Stroke Weight Max: <span class="slider-value" id="strokeWeightMaxValue">2</span></label>
+          <input type="range" id="strokeWeightMax" min="0.5" max="10" step="0.1" value="2" />
+        </div>
+        
+        <div class="control-group">
+          <label for="opacity">Opacity: <span class="slider-value" id="opacityValue">60</span></label>
+          <input type="range" id="opacity" min="0" max="255" step="5" value="60" />
+        </div>
+        
+        <div class="control-group">
+          <label for="markTypeLines">Lines %: <span class="slider-value" id="markTypeLinesValue">60</span></label>
+          <input type="range" id="markTypeLines" min="0" max="100" step="5" value="60" />
+        </div>
+        
+        <div class="control-group">
+          <label for="markTypeDots">Dots %: <span class="slider-value" id="markTypeDotsValue">25</span></label>
+          <input type="range" id="markTypeDots" min="0" max="100" step="5" value="25" />
+        </div>
+        
+        <div class="control-group full">
+          <input type="checkbox" id="smoothToggle" checked />
+          <label for="smoothToggle">Anti-aliased Rendering (Smooth)</label>
+        </div>
+        <!-- Chaos & Flow -->
+        <div class="section-title">Chaos & Flow</div>
+        
+        <div class="control-group">
+          <label for="chaos">Chaos (Jitter): <span class="slider-value" id="chaosValue">0.5</span></label>
+          <input type="range" id="chaos" min="0" max="1" step="0.05" value="0.5" />
+        </div>
+        
+        <div class="control-group">
+          <label for="flowFreq">Flow Frequency: <span class="slider-value" id="flowFreqValue">0.005</span></label>
+          <input type="range" id="flowFreq" min="0.001" max="0.02" step="0.001" value="0.005" />
+        </div>
+        
+        <div class="control-group">
+          <label for="flowInfluence">Flow Influence: <span class="slider-value" id="flowInfluenceValue">0.5</span></label>
+          <input type="range" id="flowInfluence" min="0" max="1" step="0.05" value="0.5" />
+        </div>
+        
+        <div class="control-group">
+          <label for="flowTurns">Flow Turns: <span class="slider-value" id="flowTurnsValue">2</span></label>
+          <input type="range" id="flowTurns" min="1" max="4" step="0.5" value="2" />
+        </div>
+        
+        <!-- Angle & Edge -->
+        <div class="section-title">Angle & Edge</div>
+        
+        <div class="control-group">
+          <label for="snapMode">Snap Mode:</label>
+          <select id="snapMode">
+            <option value="free">Free</option>
+            <option value="ortho">Orthogonal (90°)</option>
+            <option value="diag">Diagonal (45°)</option>
+            <option value="8way">8-Way (45° steps)</option>
+          </select>
+        </div>
+        
+        <div class="control-group">
+          <label for="snapStrength">Snap Strength: <span class="slider-value" id="snapStrengthValue">0.5</span></label>
+          <input type="range" id="snapStrength" min="0" max="1" step="0.05" value="0.5" />
+        </div>
+        
+        <div class="control-group">
+          <label for="edgeBias">Edge Bias: <span class="slider-value" id="edgeBiasValue">0.3</span></label>
+          <input type="range" id="edgeBias" min="0" max="1" step="0.05" value="0.3" />
+        </div>
+        
+        <!-- Mask & Collision -->
+        <div class="section-title">Mask & Collision</div>
+        
+        <div class="control-group">
+          <label for="maskThreshold">Mask Threshold: <span class="slider-value" id="maskThresholdValue">240</span></label>
+          <input type="range" id="maskThreshold" min="100" max="255" step="5" value="240" />
+        </div>
+        
+        <div class="control-group">
+          <label for="collisionMode">Collision Mode:</label>
+          <select id="collisionMode">
+            <option value="bounce">Bounce</option>
+            <option value="respawn">Respawn</option>
+          </select>
+        </div>
+        
+        <!-- Colors -->
+        <div class="section-title">Colors</div>
+        
+        <div class="control-group">
+          <label>Paper Color:</label>
+          <div class="color-group">
+            <input type="color" id="paperColor" value="#ffffff" />
+            <input type="text" id="paperColorValue" value="#ffffff" readonly />
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label>Layer 1 Color:</label>
+          <div class="color-group">
+            <input type="color" id="layer1Color" value="#000000" />
+            <input type="text" id="layer1ColorValue" value="#000000" readonly />
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label>Layer 2 Color:</label>
+          <div class="color-group">
+            <input type="color" id="layer2Color" value="#cc0000" />
+            <input type="text" id="layer2ColorValue" value="#cc0000" readonly />
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label>Layer 3 Color:</label>
+          <div class="color-group">
+            <input type="color" id="layer3Color" value="#0066cc" />
+            <input type="text" id="layer3ColorValue" value="#0066cc" readonly />
+          </div>
+        </div>
+        
+        <!-- Export -->
+        <div class="section-title">Export</div>
+        
+        <div class="button-row">
+          <button type="button" id="exportPngBtn">Export PNG</button>
+          <button type="button" id="exportSvgBtn">Export SVG</button>
+        </div>
+        
+      </form>
+    </div>
+    
+  </div>
+  
+  <script src="sketch.js"></script>
+</body>
+</html>
