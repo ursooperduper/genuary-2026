@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="circ7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="Layer_50" data-name="Layer 50">
+    <path class="cls-1" d="M100,50h-6.67c0-23.93-19.4-43.33-43.33-43.33S6.67,26.07,6.67,50v50H0v-50C0,22.39,22.39,0,50,0s50,22.39,50,50Z"/>
+  </g>
+  <g id="Layer_51" data-name="Layer 51">
+    <path class="cls-1" d="M86.67,50h-6.67c0-16.57-13.43-30-30-30s-30,13.43-30,30v50h-6.67v-50c0-20.25,16.42-36.67,36.67-36.67s36.67,16.42,36.67,36.67Z"/>
+  </g>
+  <g id="Layer_52" data-name="Layer 52">
+    <path class="cls-1" d="M73.33,50h-6.67c0-9.2-7.46-16.67-16.67-16.67s-16.67,7.46-16.67,16.67v50h-6.67v-50c0-12.89,10.45-23.33,23.33-23.33s23.33,10.45,23.33,23.33Z"/>
+  </g>
+  <g id="Layer_53" data-name="Layer 53">
+    <circle class="cls-1" cx="50" cy="50" r="10"/>
+  </g>
+</svg>

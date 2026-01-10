@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="circ15-2" data-name="circ15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="Layer_97" data-name="Layer 97">
+    <path class="cls-1" d="M50,28.57c-11.83,0-21.43,9.59-21.43,21.43s9.59,21.43,21.43,21.43,21.43-9.59,21.43-21.43-9.59-21.43-21.43-21.43ZM50,60c-5.52,0-10-4.48-10-10s4.48-10,10-10,10,4.48,10,10-4.48,10-10,10Z"/>
+  </g>
+  <g id="Layer_98" data-name="Layer 98">
+    <path class="cls-1" d="M50,0C22.39,0,0,22.39,0,50s22.39,50,50,50,50-22.39,50-50S77.61,0,50,0ZM50,71.43c-11.83,0-21.43-9.59-21.43-21.43s9.59-21.43,21.43-21.43,21.43,9.59,21.43,21.43-9.59,21.43-21.43,21.43Z"/>
+  </g>
+  <g id="Layer_99" data-name="Layer 99">
+    <circle class="cls-1" cx="50" cy="50" r="10"/>
+  </g>
+</svg>

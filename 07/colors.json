@@ -1,0 +1,130 @@
+{
+  "palettes": [
+    {
+      "name": "wada-v1-01--2.png",
+      "numColors": 2,
+      "colors": ["#d64a0a", "#1f889a"]
+    },
+    {
+      "name": "wada-v1-17--2.png",
+      "numColors": 2,
+      "colors": ["#d23314", "#1e9e7e"]
+    },
+    {
+      "name": "apricot-gummy--2.png",
+      "numColors": 2,
+      "colors": ["#f6b902", "#f13c7f"]
+    },
+    {
+      "name": "wada-v1-25--2.png",
+      "numColors": 2,
+      "colors": ["#c1392e", "#b5e5e0"]
+    },
+    {
+      "name": "wada-v1-144--3.png",
+      "numColors": 3,
+      "colors": ["#af2a65", "#f05300", "#000000"]
+    },
+    {
+      "name": "wada-v1-164--3.png",
+      "numColors": 3,
+      "colors": ["#da2809", "#f99d00", "#463a7e"]
+    },
+    {
+      "name": "wada-v1-181--3.png",
+      "numColors": 3,
+      "colors": ["#a01e2f", "#463a7e", "#46173b"]
+    },
+    {
+      "name": "wada-v1-189--3.png",
+      "numColors": 3,
+      "colors": ["#f6e226", "#21241d", "#58c0ae"]
+    },
+    {
+      "name": "wada-v1-196--3.png",
+      "numColors": 3,
+      "colors": ["#a7a819", "#9ed6e1", "#3a3e63"]
+    },
+    {
+      "name": "wada-v2-129--3.png",
+      "numColors": 3,
+      "colors": ["#bb8e09", "#00867C", "#0f5385"]
+    },
+    {
+      "name": "wada-v2-133--3.png",
+      "numColors": 3,
+      "colors": ["#b21345", "#ACBAB6", "#000000"]
+    },
+    {
+      "name": "wada-v2-146--3.png",
+      "numColors": 3,
+      "colors": ["#bd2356", "#ACBAB6", "#000000"]
+    },
+    {
+      "name": "wada-v2-95--3.png",
+      "numColors": 3,
+      "colors": ["#DE1108", "#FFFFFF", "#000000"]
+    },
+    {
+      "name": "wada-v2-197--3.png",
+      "numColors": 3,
+      "colors": ["#FFCD00", "#ffffff", "#000000"]
+    },
+    {
+      "name": "wada-v2-174--3.png",
+      "numColors": 3,
+      "colors": ["#b21345", "#FFCD00", "#FFFFFF"]
+    },
+    {
+      "name": "wada-v1-248--4.png",
+      "numColors": 4,
+      "colors": ["#a01e25", "#73811a", "#192b40", "#313b46"]
+    },
+    {
+      "name": "wada-v1-254--4.png",
+      "numColors": 4,
+      "colors": ["#A41834", "#ffe201", "#25752a", "#313b46"]
+    },
+    {
+      "name": "wada-v1-275--4.png",
+      "numColors": 4,
+      "colors": ["#ffeb98", "#f05301", "#abddd8", "#8ba6c3"]
+    },
+    {
+      "name": "wada-v1-309--4.png",
+      "numColors": 4,
+      "colors": ["#fae087", "#eb3a10", "#22241d", "#acbab6"]
+    },
+    {
+      "name": "wada-v1-313--4.png",
+      "numColors": 4,
+      "colors": ["#c00a1b", "#acbab6", "#96559D", "#45173b"]
+    },
+    {
+      "name": "wada-v1-319--4.png",
+      "numColors": 4,
+      "colors": ["#c00a1b", "#ffe201", "#25752A", "#000000"]
+    },
+    {
+      "name": "wada-v1-334--4.png",
+      "numColors": 4,
+      "colors": ["#A21726", "#f26f2e", "#412716", "#1C857C"]
+    },
+    {
+      "name": "wada-v2-124--4.png",
+      "numColors": 4,
+      "colors": ["#b21345", "#a1ca4d", "#6DCAE5", "#000000"]
+    },
+    {
+      "name": "wada-v2-152--4.png",
+      "numColors": 4,
+      "colors": ["#de1108", "#ffffff", "#ACBAB6", "#000000"]
+    },
+    {
+      "name": "80s-glamo--4.png",
+      "numColors": 4,
+      "colors": ["#8DE8E9", "#f4217f", "#e4f732", "#7320a6"]
+    }
+  ]
+  
+}
