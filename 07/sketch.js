@@ -527,10 +527,10 @@ function exportPNG() {
   const serializer = new XMLSerializer();
   const svgString = serializer.serializeToString(svgElement);
   
-  // Create canvas for rasterization
+  // Create canvas for rasterization at 2x resolution
   const tempCanvas = document.createElement('canvas');
-  tempCanvas.width = CANVAS_W;
-  tempCanvas.height = CANVAS_H;
+  tempCanvas.width = CANVAS_W * 2;
+  tempCanvas.height = CANVAS_H * 2;
   const ctx = tempCanvas.getContext('2d');
   
   // Convert SVG to image and draw to canvas
@@ -539,7 +539,7 @@ function exportPNG() {
   const url = URL.createObjectURL(svgBlob);
   
   img.onload = function() {
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img, 0, 0, CANVAS_W * 2, CANVAS_H * 2);
     URL.revokeObjectURL(url);
     
     // Download as PNG
