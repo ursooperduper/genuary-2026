@@ -10,15 +10,7 @@ function setup() {
 }
 
 function draw() {
-  background('#0f172a');
-  noStroke();
-  fill('#38bdf8');
-  circle(width * 0.5, height * 0.45, 220);
-
-  fill('#94a3b8');
-  textAlign(CENTER, CENTER);
-  textSize(16);
-  text('Replace me with your Genuary sketch', width * 0.5, height * 0.75);
+  background('#000000');
 }
 
 function saveAsSvg() {
