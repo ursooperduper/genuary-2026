@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <title>Genuary 2026 - CMY Shadow Physics</title>
+  <style>
+    :root {
+      --panel-soft: rgba(17, 24, 39, 0.65);
+      --panel-border: rgba(148, 163, 184, 0.35);
+    }
+
+    .controls {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 12px;
+      background: var(--panel-soft);
+      border: 1px solid var(--panel-border);
+      margin-bottom: 16px;
+    }
+
+    .controls label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .controls input[type="range"] {
+      width: 100%;
+    }
+
+    .controls .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Genuary 2026</h1>
+    <h2>January 15b — CMY Shadow Physics</h2>
+    <p>Invisible object, visible CMY shadows. Move the mouse for sun direction; tweak controls to split or align shadows.</p>
+    <div class="meta">
+      <span id="asset-name">Asset: —</span>
+      <span id="seed-value">Seed: —</span>
+    </div>
+    <section class="controls" aria-label="Shadow controls">
+      <div class="row">
+        <label>
+          Separation <span data-value-for="sep">50</span>
+          <input id="sep" type="range" min="0" max="50" value="50" step="1">
+        </label>
+        <label>
+          Length <span data-value-for="length">220</span>
+          <input id="length" type="range" min="0" max="420" value="220" step="5">
+        </label>
+        <label>
+          Shear <span data-value-for="shear">0.15</span>
+          <input id="shear" type="range" min="0" max="0.35" value="0.15" step="0.01">
+        </label>
+        <label>
+          Alpha <span data-value-for="alpha">140</span>
+          <input id="alpha" type="range" min="0" max="255" value="140" step="5">
+        </label>
+        <label>
+          Jitter <span data-value-for="jitter">2</span>
+          <input id="jitter" type="range" min="0" max="6" value="2" step="1">
+        </label>
+      </div>
+      <div class="row">
+        <label class="toggle">
+          <input id="snap" type="checkbox">
+          Snap light angle
+        </label>
+        <label class="toggle">
+          <input id="paper" type="checkbox" checked>
+          Paper tone background
+        </label>
+        <label class="toggle">
+          <input id="debug-light" type="checkbox">
+          Debug light
+        </label>
+        <label class="toggle">
+          <input id="debug-anchor" type="checkbox">
+          Debug anchor
+        </label>
+        <label class="toggle">
+          <input id="debug-vectors" type="checkbox">
+          Debug vectors
+        </label>
+        <label class="toggle">
+          <input id="debug-outline" type="checkbox">
+          Debug outline
+        </label>
+      </div>
+    </section>
+    <div id="sketch-holder" aria-label="p5 canvas holder"></div>
+  </main>
+  <script src="../lib/p5.min.js"></script>
+  <script src="../lib/p5.svg.js"></script>
+  <script src="./sketch.js"></script>
+</body>
+</html>
