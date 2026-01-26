@@ -10,25 +10,13 @@ let useUniformScale = true;  // decide if all stacks share the same scale
 let stackScales = [];  // per-stack scale factors
 let compositionBuffer;  // offscreen buffer for composition
 
-
-function setup() {
-  // Use raster renderer so blendMode(DIFFERENCE) works on screen
-  const canvas = createCanvas(WIDTH, HEIGHT);
-  canvas.parent('sketch-holder');
-  colorMode(HSL, 360, 100, 100, 1);
-  // Create offscreen buffer for composition
-  compositionBuffer = createGraphics(WIDTH, HEIGHT);
-  compositionBuffer.colorMode(HSL, 360, 100, 100, 1);
-  // Pick random number of shapes per stack (8-16)
-  numShapes = floor(random(8, 16));
-  // Pick a random shape type for this sketch
+function randomizeSketchParams() {
+  numShapes = floor(random(8, 16)); // number of shapes per stack
   const types = ['circle', 'square', 'triangle'];
   shapeType = random(types);
-  // Pick a random number of copies (3-6)
-  copies = floor(random(3, 7));
-  // Randomly decide if all stacks use the same scale
-  useUniformScale = random() > 0.5;
-  // Populate stackScales: either all 1.0, or random 0.5-1.5
+  copies = floor(random(2, 10));
+  // useUniformScale = random() > 0.5;
+  useUniformScale = random() > 0.2;
   stackScales = [];
   if (useUniformScale) {
     for (let i = 0; i < copies; i++) {
@@ -39,6 +27,18 @@ function setup() {
       stackScales.push(random(0.5, 2.2));
     }
   }
+}
+
+
+function setup() {
+  // Use raster renderer so blendMode(DIFFERENCE) works on screen
+  const canvas = createCanvas(WIDTH, HEIGHT);
+  canvas.parent('sketch-holder');
+  colorMode(HSL, 360, 100, 100, 1);
+  // Create offscreen buffer for composition
+  compositionBuffer = createGraphics(WIDTH, HEIGHT);
+  compositionBuffer.colorMode(HSL, 360, 100, 100, 1);
+  randomizeSketchParams();
   loop();
 }
 
@@ -238,6 +238,9 @@ function keyPressed() {
     saveAsSvg();
   } else if (key === 'p' || key === 'P') {
     saveAsPng();
+  } else if (key === 'r' || key === 'R') {
+    // Re-randomize parameters for a fresh sketch without a full page reload
+    randomizeSketchParams();
   }
 }
 
