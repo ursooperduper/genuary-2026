@@ -17,7 +17,7 @@ const CFG = {
   // weightBiasBottom: 0.28,
   weightBiasBottom: 1200,
   breatheAmp: 0.08,
-  breatheSpeed: 0.8,
+  breatheSpeed: 0.8, // 
   breathePhase: 0.9,
   yBiasSin: 0.06,
   baseControl: 0.28,
