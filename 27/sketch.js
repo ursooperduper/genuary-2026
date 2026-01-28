@@ -3,7 +3,7 @@ const HEIGHT = 675;
 
 // Centralized controls
 const CFG = {
-  background: '#000000',
+  background: '#d00098',
   blobFill: [255, 45], // white with alpha
   segments: 32,
   widthFactor: 0.5, // blob width = canvas * factor
@@ -13,9 +13,9 @@ const CFG = {
   noiseScale: 0.7,
   noiseSpeed: 0.35,
   // weightBiasTop: -0.06,
-  weightBiasTop: -3.1,
+  weightBiasTop: -3.2,
   // weightBiasBottom: 0.28,
-  weightBiasBottom: 1000,
+  weightBiasBottom: 1200,
   breatheAmp: 0.08,
   breatheSpeed: 0.8,
   breathePhase: 0.9,
