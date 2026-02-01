@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <title>Genuary 2026 - Day 25 - Organic geometry</title>
+  <style>
+    #controls {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .control-section {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px;
+      background-color: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 4px;
+    }
+
+    .control-section label {
+      font-weight: 600;
+      color: #999;
+      min-width: 80px;
+    }
+
+    .control-section input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .control-section select {
+      padding: 8px 12px;
+      font-size: 14px;
+      background-color: #1a1a1a;
+      color: #00ff66;
+      border: 1px solid #00ff66;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: monospace;
+      min-width: 160px;
+    }
+
+    .control-section select:hover {
+      background-color: #2a2a2a;
+    }
+
+    .control-section select option {
+      background-color: #1a1a1a;
+      color: #00ff66;
+    }
+
+    .feature-label {
+      color: #00ff66;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
+
+    .slider-control {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px;
+      background-color: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 4px;
+    }
+
+    .slider-control label {
+      font-weight: 600;
+      color: #999;
+      min-width: 100px;
+    }
+
+    .slider-control input[type="range"] {
+      flex: 1;
+      min-width: 150px;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #00ff66, #00ff66);
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      background-color: #1a1a1a;
+    }
+
+    .slider-control input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #00ff66;
+      cursor: pointer;
+      border: 2px solid #1a1a1a;
+    }
+
+    .slider-control input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #00ff66;
+      cursor: pointer;
+      border: 2px solid #1a1a1a;
+    }
+
+    .slider-value {
+      color: #00ff66;
+      font-weight: bold;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    #info {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Genuary 2026</h1>
+    <h2>January 25</h2>
+    <p>Organic geometry</p>
+
+    <div id="controls">
+      <!-- Structural Variation Section -->
+      <div>
+        <h3 style="color: #00ff66; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; margin-bottom: 15px; margin-top: 0;">Structural Variation</h3>
+        
+        <!-- Body Shape Control -->
+        <div class="control-section">
+          <span class="feature-label">Body</span>
+          <label for="widthProfileSelect">Shape:</label>
+          <select id="widthProfileSelect">
+            <option value="bell">Bell (smooth bulge)</option>
+            <option value="linear">Linear (spindle)</option>
+            <option value="sigmoid">Sigmoid (soft S-curve)</option>
+            <option value="barrel">Barrel (heavy middle)</option>
+            <option value="double-bump">Double-bump (segmented)</option>
+          </select>
+        </div>
+
+        <!-- Leg Count Slider -->
+        <div class="slider-control">
+          <label for="legCountSlider">Leg Count:</label>
+          <input type="range" id="legCountSlider" min="2" max="8" value="4">
+          <span class="slider-value" id="legCountValue">4</span>
+        </div>
+
+        <!-- Joint Nodes Toggle -->
+        <div class="control-section">
+          <span class="feature-label">Details</span>
+          <label for="jointNodesEnabled">
+            <input type="checkbox" id="jointNodesEnabled"> Joint Nodes
+          </label>
+        </div>
+      </div>
+
+      <!-- Creature Features Section -->
+      <div>
+        <h3 style="color: #00ff66; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; margin-bottom: 15px; margin-top: 20px;">Creature Features</h3>
+        
+        <!-- Orientation Control -->
+        <div class="control-section">
+          <span class="feature-label">Orient</span>
+          <label for="flipHeadTail">
+            <input type="checkbox" id="flipHeadTail"> Flip Head/Tail
+          </label>
+        </div>
+
+        <!-- Antennae Control -->
+        <div class="control-section">
+          <span class="feature-label">Antennae</span>
+          <label for="antennaeEnabled">
+            <input type="checkbox" id="antennaeEnabled" checked> Enable
+          </label>
+          <label for="antennaeStyle">Style:</label>
+          <select id="antennaeStyle">
+            <option value="straight">Straight</option>
+            <option value="curved" selected>Curved</option>
+            <option value="segmented">Segmented</option>
+            <option value="feathered">Feathered</option>
+          </select>
+        </div>
+
+        <!-- Antennae Length Slider -->
+        <div class="slider-control">
+          <label for="antennalLengthSlider">Antennae Length:</label>
+          <input type="range" id="antennalLengthSlider" min="30" max="100" value="60">
+          <span class="slider-value" id="antennalLengthValue">60</span>
+        </div>
+
+        <!-- Antennae Angle Slider -->
+        <div class="slider-control">
+          <label for="antennaeAngleSlider">Antennae Angle:</label>
+          <input type="range" id="antennaeAngleSlider" min="20" max="70" value="40">
+          <span class="slider-value" id="antennaeAngleValue">40</span>
+        </div>
+
+        <!-- Antennae Segments Slider -->
+        <div class="slider-control">
+          <label for="antennaeSegmentsSlider">Antennae Segments:</label>
+          <input type="range" id="antennaeSegmentsSlider" min="3" max="8" value="5">
+          <span class="slider-value" id="antennaeSegmentsValue">5</span>
+        </div>
+
+        <!-- Antennae Feather Count Slider -->
+        <div class="slider-control">
+          <label for="antennaeFeatherCountSlider">Feather Count:</label>
+          <input type="range" id="antennaeFeatherCountSlider" min="4" max="10" value="6">
+          <span class="slider-value" id="antennaeFeatherCountValue">6</span>
+        </div>
+
+        <!-- Eyes Control -->
+        <div class="control-section">
+          <span class="feature-label">Eyes</span>
+          <label for="eyesEnabled">
+            <input type="checkbox" id="eyesEnabled" checked> Enable
+          </label>
+          <label for="eyesStyle">Style:</label>
+          <select id="eyesStyle">
+            <option value="simple">Simple</option>
+            <option value="stalked" selected>Stalked</option>
+            <option value="compound">Compound</option>
+            <option value="multiple">Multiple</option>
+          </select>
+        </div>
+
+        <!-- Eye Size Slider -->
+        <div class="slider-control">
+          <label for="eyeSizeSlider">Eye Size:</label>
+          <input type="range" id="eyeSizeSlider" min="4" max="32" value="8">
+          <span class="slider-value" id="eyeSizeValue">8</span>
+        </div>
+
+        <!-- Eye Offset Slider -->
+        <div class="slider-control">
+          <label for="eyeOffsetSlider">Eye Offset:</label>
+          <input type="range" id="eyeOffsetSlider" min="8" max="25" value="15">
+          <span class="slider-value" id="eyeOffsetValue">15</span>
+        </div>
+
+        <!-- Eye Stalk Length Slider -->
+        <div class="slider-control">
+          <label for="eyeStalkLengthSlider">Eye Stalk:</label>
+          <input type="range" id="eyeStalkLengthSlider" min="10" max="40" value="20">
+          <span class="slider-value" id="eyeStalkLengthValue">20</span>
+        </div>
+
+        <!-- Eye Count Slider -->
+        <div class="slider-control">
+          <label for="eyeCountSlider">Eye Count:</label>
+          <input type="range" id="eyeCountSlider" min="2" max="5" value="2">
+          <span class="slider-value" id="eyeCountValue">2</span>
+        </div>
+
+        <!-- Tail Control -->
+        <div class="control-section">
+          <span class="feature-label">Tail</span>
+          <label for="tailEnabled">
+            <input type="checkbox" id="tailEnabled" checked> Enable
+          </label>
+          <label for="tailStyle">Style:</label>
+          <select id="tailStyle">
+            <option value="simple">Simple</option>
+            <option value="segmented">Segmented</option>
+            <option value="stinger" selected>Stinger</option>
+            <option value="forked">Forked</option>
+          </select>
+        </div>
+
+        <!-- Tail Length Slider -->
+        <div class="slider-control">
+          <label for="tailLengthSlider">Tail Length:</label>
+          <input type="range" id="tailLengthSlider" min="40" max="150" value="80">
+          <span class="slider-value" id="tailLengthValue">80</span>
+        </div>
+
+        <!-- Tail Segments Slider -->
+        <div class="slider-control">
+          <label for="tailSegmentsSlider">Tail Segments:</label>
+          <input type="range" id="tailSegmentsSlider" min="3" max="10" value="6">
+          <span class="slider-value" id="tailSegmentsValue">6</span>
+        </div>
+
+        <!-- Tail Curve Slider -->
+        <div class="slider-control">
+          <label for="tailCurveSlider">Tail Curve:</label>
+          <input type="range" id="tailCurveSlider" min="0" max="0.5" step="0.01" value="0.3">
+          <span class="slider-value" id="tailCurveValue">0.3</span>
+        </div>
+
+        <!-- Tail Fork Angle Slider -->
+        <div class="slider-control">
+          <label for="tailForkAngleSlider">Fork Angle:</label>
+          <input type="range" id="tailForkAngleSlider" min="15" max="45" value="25">
+          <span class="slider-value" id="tailForkAngleValue">25</span>
+        </div>
+
+        <!-- Wings Control -->
+        <div class="control-section">
+          <span class="feature-label">Wings</span>
+          <label for="wingsEnabled">
+            <input type="checkbox" id="wingsEnabled" checked> Enable
+          </label>
+          <label for="wingsStyle">Style:</label>
+          <select id="wingsStyle">
+            <option value="triangular">Triangular</option>
+            <option value="veined" selected>Veined</option>
+            <option value="butterfly">Butterfly</option>
+            <option value="folded">Folded</option>
+          </select>
+        </div>
+
+        <!-- Wing Size Slider -->
+        <div class="slider-control">
+          <label for="wingSizeSlider">Wing Size:</label>
+          <input type="range" id="wingSizeSlider" min="30" max="400" value="240">
+          <span class="slider-value" id="wingSizeValue">240</span>
+        </div>
+
+        <!-- Wing Angle Slider -->
+        <div class="slider-control">
+          <label for="wingAngleSlider">Wing Angle:</label>
+          <input type="range" id="wingAngleSlider" min="20" max="180" value="90">
+          <span class="slider-value" id="wingAngleValue">90</span>
+        </div>
+
+    </div>
+
+    <div id="sketch-holder" aria-label="p5 canvas holder"></div>
+
+    <div id="info">
+      <p><strong>Instructions:</strong> Draw a spine with your mouse → release → creature assembles</p>
+      <p><strong>Controls:</strong> R = reset | S = save PNG | V = save SVG | Use controls above to customize your creature</p>
+    </div>
+  </main>
+
+  <script src="../lib/p5.min.js"></script>
+  <script src="../lib/p5.svg.js"></script>
+  <script src="./sketch.js"></script>
+
+  <script>
+    // Connect body shape dropdown to sketch
+    document.getElementById('widthProfileSelect').addEventListener('change', (e) => {
+      setWidthProfile(e.target.value);
+    });
+
+    // Antennae controls
+    document.getElementById('antennaeEnabled').addEventListener('change', (e) => {
+      setAntennaeEnabled(e.target.checked);
+    });
+    document.getElementById('antennaeStyle').addEventListener('change', (e) => {
+      setAntennaeStyle(e.target.value);
+    });
+
+    // Antennae sliders
+    document.getElementById('antennalLengthSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('antennalLengthValue').textContent = value;
+      setAntennaeLength(value);
+    });
+    document.getElementById('antennaeAngleSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('antennaeAngleValue').textContent = value;
+      setAntennaeAngle(value);
+    });
+    document.getElementById('antennaeSegmentsSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('antennaeSegmentsValue').textContent = value;
+      setAntennaeSegments(value);
+    });
+    document.getElementById('antennaeFeatherCountSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('antennaeFeatherCountValue').textContent = value;
+      setAntennaeFeatherCount(value);
+    });
+
+    // Eyes controls
+    document.getElementById('eyesEnabled').addEventListener('change', (e) => {
+      setEyesEnabled(e.target.checked);
+    });
+    document.getElementById('eyesStyle').addEventListener('change', (e) => {
+      setEyesStyle(e.target.value);
+    });
+
+    // Eye sliders
+    document.getElementById('eyeSizeSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('eyeSizeValue').textContent = value;
+      setEyesSize(value);
+    });
+    document.getElementById('eyeOffsetSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('eyeOffsetValue').textContent = value;
+      setEyesOffset(value);
+    });
+    document.getElementById('eyeStalkLengthSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('eyeStalkLengthValue').textContent = value;
+      setEyesStalkLength(value);
+    });
+    document.getElementById('eyeCountSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('eyeCountValue').textContent = value;
+      setEyesCount(value);
+    });
+
+    // Tail controls
+    document.getElementById('tailEnabled').addEventListener('change', (e) => {
+      setTailEnabled(e.target.checked);
+    });
+    document.getElementById('tailStyle').addEventListener('change', (e) => {
+      setTailStyle(e.target.value);
+    });
+
+    // Tail sliders
+    document.getElementById('tailLengthSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('tailLengthValue').textContent = value;
+      setTailLength(value);
+    });
+    document.getElementById('tailSegmentsSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('tailSegmentsValue').textContent = value;
+      setTailSegments(value);
+    });
+    document.getElementById('tailCurveSlider').addEventListener('input', (e) => {
+      const value = parseFloat(e.target.value);
+      document.getElementById('tailCurveValue').textContent = value.toFixed(2);
+      setTailCurve(value);
+    });
+    document.getElementById('tailForkAngleSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('tailForkAngleValue').textContent = value;
+      setTailForkAngle(value);
+    });
+
+    // Wings controls
+    document.getElementById('wingsEnabled').addEventListener('change', (e) => {
+      setWingsEnabled(e.target.checked);
+    });
+    document.getElementById('wingsStyle').addEventListener('change', (e) => {
+      setWingsStyle(e.target.value);
+    });
+
+    // Wing sliders
+    document.getElementById('wingSizeSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('wingSizeValue').textContent = value;
+      setWingsSize(value);
+    });
+    document.getElementById('wingAngleSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('wingAngleValue').textContent = value;
+      setWingsAngle(value);
+    });
+
+    // Orientation control
+    document.getElementById('flipHeadTail').addEventListener('change', (e) => {
+      setFlipHeadTail(e.target.checked);
+    });
+
+    // Structural Variation controls
+    document.getElementById('legCountSlider').addEventListener('input', (e) => {
+      const value = parseInt(e.target.value);
+      document.getElementById('legCountValue').textContent = value;
+      setLegCount(value);
+    });
+
+    document.getElementById('jointNodesEnabled').addEventListener('change', (e) => {
+      setJointNodesEnabled(e.target.checked);
+    });
+  </script>
+</body>
+</html>
